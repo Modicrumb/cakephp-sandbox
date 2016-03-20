@@ -1,9 +1,12 @@
 <?php
 namespace Sandbox\Controller;
 
+use Cake\Event\Event;
+use Cake\Network\Exception\NotFoundException;
+
 class ExamplesController extends SandboxAppController {
 
-	public $helpers = ['Geshi.Geshi'];
+	public $helpers = ['Markup.Highlighter'];
 
 	public function beforeFilter(Event $event) {
 		parent::beforeFilter($event);
@@ -22,7 +25,11 @@ class ExamplesController extends SandboxAppController {
 		$this->set(compact('actions'));
 	}
 
-	public function geshi() {
+	/**
+	 * @return \Cake\Network\Response|null
+	 */
+	public function markup() {
+		//throw new NotFoundException('Currently disabled because they cannot provide a stable composer tag.');
 	}
 
 	public function params() {
